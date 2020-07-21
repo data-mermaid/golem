@@ -107,6 +107,8 @@ def open_browser(browser_id=None):
         with validate_exec_path('chrome', 'chromedriver_path', settings) as ex_path:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument('headless')
+            chrome_options.add_argument('no-sandbox')
+            chrome_options.add_argument('disable-gpu')
             chrome_options.add_argument('--window-size=1600,1600')
             driver = GolemChromeDriver(executable_path=ex_path,
                                        chrome_options=chrome_options)
